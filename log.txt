@@ -4,3 +4,21 @@ Timestamp: Fri Nov 20 2020 00:13:31 GMT-0500 (Eastern Standard Time)
 URL: /favicon.ico
 Timestamp: Fri Nov 20 2020 00:13:31 GMT-0500 (Eastern Standard Time)
 
+URL: /documentation.html
+Timestamp: Fri Nov 20 2020 00:15:07 GMT-0500 (Eastern Standard Time)
+
+URL: /favicon.ico
+Timestamp: Fri Nov 20 2020 00:15:07 GMT-0500 (Eastern Standard Time)
+
+URL: /bs.html
+Timestamp: Fri Nov 20 2020 00:19:33 GMT-0500 (Eastern Standard Time)
+
+URL: /favicon.ico
+Timestamp: Fri Nov 20 2020 00:19:33 GMT-0500 (Eastern Standard Time)
+
+URL: /index.html
+Timestamp: Fri Nov 20 2020 00:19:46 GMT-0500 (Eastern Standard Time)
+
+URL: /favicon.ico
+Timestamp: Fri Nov 20 2020 00:19:46 GMT-0500 (Eastern Standard Time)
+
