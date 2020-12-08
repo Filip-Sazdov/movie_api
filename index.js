@@ -46,9 +46,9 @@ let listOfMovies = [
 	},
 ];
 
-app.use(express.static('public'));
-
 app.use(morgan('common'));
+
+app.use('/documentation', express.static('public/documentation.html'));
 
 app.get('/', (req, res) => {
 	res.send('Welcome to my app!');
