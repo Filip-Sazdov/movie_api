@@ -46,6 +46,8 @@ let listOfMovies = [
 	},
 ];
 
+app.use(express.static('public'));
+
 app.use(morgan('common'));
 
 app.get('/', (req, res) => {
@@ -56,8 +58,13 @@ app.get('/movies', (req, res) => {
 	res.json(listOfMovies);
 });
 
-app.get('/documentation', (req, res) => {
-	res.sendFile('public/documentation.html', { root: __dirname });
+// app.get('/documentation', (req, res) => {
+// 	res.sendFile('public/documentation.html', { root: __dirname });
+// });
+
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).send('Something broke!');
 });
 
 app.listen(8080, () => {
