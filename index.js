@@ -3,6 +3,33 @@ const express = require('express'),
 
 const app = express();
 
+let users = [
+	{
+		id: 1,
+		Username: 'Hannah Keating',
+		Password: '1234',
+		Email: 'h.monet1104@gmail.com',
+		Birthday: '11/04/1990',
+		FavoriteMovies: [],
+	},
+	{
+		id: 2,
+		Username: 'Natasha Keating',
+		Password: '5678',
+		Email: 'h.monet1104@yahoo.com',
+		Birthday: '11/04/1990',
+		FavoriteMovies: [],
+	},
+	{
+		id: 3,
+		Username: 'Sean Keating',
+		Password: '5555',
+		Email: 'seank@gmail.com',
+		Birthday: '11/04/1990',
+		FavoriteMovies: [],
+	},
+];
+
 let listOfMovies = [
 	{
 		title: 'The Matrix',
@@ -57,10 +84,6 @@ app.get('/', (req, res) => {
 app.get('/movies', (req, res) => {
 	res.json(listOfMovies);
 });
-
-// app.get('/documentation', (req, res) => {
-// 	res.sendFile('public/documentation.html', { root: __dirname });
-// });
 
 app.use((err, req, res, next) => {
 	console.error(err.stack);
