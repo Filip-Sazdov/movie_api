@@ -143,50 +143,141 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Return data about a genre (description) by
+                            name/title (e.g., “Thriller”)</td>
+                        <td>http://localhost:8080/movies/genre/Thriller</td>
+                        <td>GET</td>
+                        <td>/movies/genre/:Name - Parameter is case-sensitive</td>
+                        <td>N/A</td>
+                        <td>
+                            <pre>
+                                {
+                                    Name: "Thriller",
+                                    Description:
+                                    "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience.",
+                                }
+                            </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Return a list of ALL user data</td>
+                        <td>http://localhost:8080/users</td>
+                        <td>GET</td>
+                        <td>/users</td>
+                        <td>N/A</td>
+                        <td>
+                            <pre>
+                                [
+                                    {
+                                        id: 1,
+                                        Username: "Hannah Keating",
+                                        Password: "1234",
+                                        Email: "h.monet1104@gmail.com",
+                                        Birthday: "11/04/1990",
+                                        FavoriteMovies: [],
+                                    }
+                                ]
+                            </pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Return single user data by Username</td>
+                        <td>http://localhost:8080/users/Sean%20Keating</td>
+                        <td>GET</td>
+                        <td>/users/:Username</td>
+                        <td>N/A</td>
+                        <td>
+                            <pre>
+                                {
+                                    id: 3,
+                                    Username: "Sean Keating",
+                                    Password: "5555",
+                                    Email: "seank@gmail.com",
+                                    Birthday: "11/04/1990",
+                                    FavoriteMovies: [],
+                                }
+                            </pre>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Allow new users to register</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>http://localhost:8080/users</td>
+                        <td>POST</td>
+                        <td>/users</td>
+                        <td>
+                            <Pre>
+                                {
+                                    id: 1,
+                                    Username: "Hannah Keating",
+                                    Password: "1234",
+                                    Email: "h.monet1104@gmail.com",
+                                    Birthday: "11/04/1990",
+                                    FavoriteMovies: [],
+                                }
+                            </Pre>
+                        </td>
+                        <td>String - 'User added!'</td>
                     </tr>
                     <tr>
                         <td>Allow users to update their user info (username)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>http://localhost:8080/users/Sean%20Keating</td>
+                        <td>PUT</td>
+                        <td>/users/:Username - Parameter is case-sensitive</td>
+                        <td>
+                            <pre>
+                                {
+                                    id: 3,
+                                    Username: "Sean Keating",
+                                    Password: "5555",
+                                    Email: "seank@gmail.com",
+                                    Birthday: "11/04/1990",
+                                    FavoriteMovies: [],
+                                }
+                            </pre>
+                        </td>
+                        <td>
+                            <pre>
+                                {
+                                    id: 3,
+                                    Username: "Sean Keating",
+                                    Password: "5555",
+                                    Email: "seank@gmail.com",
+                                    Birthday: "11/04/1990",
+                                    FavoriteMovies: [],
+                                }
+                            </pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Allow users to add a movie to their list of
                             favorites (showing only a text that a movie has been
                             added—more on this later)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>http://localhost:8080/users/Sean%20Keating/favorites</td>
+                        <td>POST</td>
+                        <td>/users/:Username/favorites</td>
+                        <td>Boolean Toggle - True | False</td>
+                        <td>String - 'Succesfully added movie to favorites!'</td>
                     </tr>
                     <tr>
                         <td>Allow users to remove a movie from their list of
                             favorites (showing only a text that a movie has been
                             removed—more on this later)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>http://localhost:8080/users/Sean%20Keating/favorites</td>
+                        <td>DELETE</td>
+                        <td>/users/:Username/favorites</td>
+                        <td>Boolean Toggle - True | False</td>
+                        <td>String - 'Successfully removed movie from
+                            favorites.'</td>
                     </tr>
                     <tr>
                         <td>Allow existing users to deregister (showing only a
                             text that a user email has been removed—more on this
                             later)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>http://localhost:8080/users/h.monet1104@yahoo.com</td>
+                        <td>DELETE</td>
+                        <td>/users/:Email</td>
+                        <td>N/A</td>
+                        <td>String - 'User Deleted.'</td>
                     </tr>
                 </tbody>
 

@@ -126,6 +126,7 @@ app.get('/', (req, res) => {
 	res.send('Welcome to my Movie App!');
 });
 
+// Movies endpoints
 app.get('/movies', (req, res) => {
 	res.json(movies);
 });
@@ -152,6 +153,45 @@ app.get('/movies/director/:Name', (req, res) => {
 			return movie.Director.Name === req.params.Name;
 		}).Director
 	);
+});
+
+// Users endpoints
+app.get('/users', function (req, res) {
+	res.json(users);
+});
+
+app.get('/users/:Username', (req, res) => {
+	res.json(
+		users.find((user) => {
+			return user.Username === req.params.Username;
+		})
+	);
+});
+
+app.post('/users', (req, res) => {
+	res.status(500).send('User added!');
+});
+
+app.put('/users/:Username', (req, res) => {
+	res.json(
+		users.find((user) => {
+			return user.Username === req.params.Username;
+		})
+	);
+});
+
+//allows user to add movie to favorites
+app.post('/users/:Username/favorites', (req, res) => {
+	res.status(500).send('Succesfully added movie to favorites!');
+});
+
+//allows user to remove movie from favorites
+app.delete('/users/:Username/favorites', (req, res) => {
+	res.status(500).send('Successfully removed movie from favorites.');
+});
+
+app.delete('/users/:Email', (req, res) => {
+	res.status(500).send('User Deleted.');
 });
 
 app.use((err, req, res, next) => {
