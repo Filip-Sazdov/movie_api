@@ -16,8 +16,8 @@ let users = [
 		id: 2,
 		Username: 'Natasha Keating',
 		Password: '5678',
-		Email: 'h.monet1104@yahoo.com',
-		Birthday: '11/04/1990',
+		Email: 'n.monet1104@yahoo.com',
+		Birthday: '12/02/1992',
 		FavoriteMovies: [],
 	},
 	{
@@ -25,12 +25,12 @@ let users = [
 		Username: 'Sean Keating',
 		Password: '5555',
 		Email: 'seank@gmail.com',
-		Birthday: '11/04/1990',
+		Birthday: '01/013/1989',
 		FavoriteMovies: [],
 	},
 ];
 
-let listOfMovies = [
+let movies = [
 	{
 		title: 'The Matrix',
 		'Written by': 'The Wachowskis',
@@ -74,15 +74,14 @@ let listOfMovies = [
 ];
 
 app.use(morgan('common'));
-
-app.use('/documentation', express.static('public/documentation.html'));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
 	res.send('Welcome to my app!');
 });
 
 app.get('/movies', (req, res) => {
-	res.json(listOfMovies);
+	res.json(movies);
 });
 
 app.use((err, req, res, next) => {
