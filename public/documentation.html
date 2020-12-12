@@ -94,7 +94,9 @@
                                     Director: {
                                       Name: "Nick Cassavetes",
                                       Bio:
-                                        "Nick Cassavetes was born in New York City, the son of actress Gena Rowlands and Greek-American actor and film director John Cassavetes. As a child, he appeared in two of his father's films: Husbands (1970) and A Woman Under the Influence (1974). After spending so much of his youth surrounded by the film industry, Cassavetes initially decided he did not want to go into the field. He instead attended Syracuse University on a basketball scholarship. His athletic career was effectively ended by an injury, and he decided to rethink his aspirations, ultimately deciding to attend his parents' alma mater, the American Academy of Dramatic Arts in New York. He has appeared in the films, Face/Off (1997), The Wraith (1986), Life (1999), Class of 1999 II: The Substitute (1994), Backstreet Dreams (1990) and The Astronaut's Wife (1999), among others. He has directed several films, including John Q (2002), Alpha Dog (2006), She's So Lovely (1997), Unhook the Stars (1996), The Notebook (2004), and My Sister's Keeper (2009). He also adapted the screenplay for Blow (2001) and wrote the dialogue for the Justin Timberlake music video, \"What Goes Around... Comes Around\". In 1985, Cassavetes married Isabelle Rafalovich. They had two daughters together, Virginia Cassavetes (Virginia Sara Cassavetes) (born in 1986) and Sasha Cassavetes (born in 1988), before divorcing. He then married Heather Wahlquist (Heather \"Queenie\" Wahlquist), who has appeared in several of his films, including a small role in The Notebook (2004) as Sara, a secondary character and best friend to the female lead Allie Hamilton, portrayed by Rachel McAdams. The movie is effectively a family project, as Cassavetes's own mother, Gena Rowlands, appears as the older, married Allie Calhoun.",
+                                        "Nick Cassavetes was born in New York City, the son of actress Gena Rowlands and Greek-American actor and film director John Cassavetes. As a child, he appeared in two of his father's films: Husbands (1970) and A Woman Under the Influence (1974).
+                                        After spending so much of his youth surrounded by the film industry, Cassavetes initially decided he did not want to go into the field. He instead attended Syracuse University on a basketball scholarship.
+                                        His athletic career was effectively ended by an injury, and he decided to rethink his aspirations, ultimately deciding to attend his parents' alma mater, the American Academy of Dramatic Arts in New York.",
                                       Birth: "1959",
                                       Death: "",
                                     },
@@ -138,23 +140,6 @@
                                       "David Yates was born on October 8, 1963 in St. Helens, Merseyside, England. He is a director and producer, known for Harry Potter and the Deathly Hallows: Part 2 (2011), Harry Potter and the Order of the Phoenix (2007) and The Legend of Tarzan (2016).",
                                     Birth: "1963",
                                     Death: "",
-                                }
-                            </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Return data about a genre (description) by
-                            name/title (e.g., “Thriller”)</td>
-                        <td>http://localhost:8080/movies/genre/Thriller</td>
-                        <td>GET</td>
-                        <td>/movies/genre/:Name - Parameter is case-sensitive</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
-                                {
-                                    Name: "Thriller",
-                                    Description:
-                                    "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience.",
                                 }
                             </pre>
                         </td>
@@ -252,20 +237,20 @@
                         <td>Allow users to add a movie to their list of
                             favorites (showing only a text that a movie has been
                             added—more on this later)</td>
-                        <td>http://localhost:8080/users/Sean%20Keating/favorites</td>
+                        <td>http://localhost:8080/users/Sean%20Keating/favorites/The%20Notebook</td>
                         <td>POST</td>
-                        <td>/users/:Username/favorites</td>
-                        <td>Boolean Toggle - True | False</td>
+                        <td>/users/:Username/favorites/:Title</td>
+                        <td>N/A</td>
                         <td>String - 'Succesfully added movie to favorites!'</td>
                     </tr>
                     <tr>
                         <td>Allow users to remove a movie from their list of
                             favorites (showing only a text that a movie has been
                             removed—more on this later)</td>
-                        <td>http://localhost:8080/users/Sean%20Keating/favorites</td>
+                        <td>http://localhost:8080/users/Sean%20Keating/favorites/The%20Notebook</td>
                         <td>DELETE</td>
-                        <td>/users/:Username/favorites</td>
-                        <td>Boolean Toggle - True | False</td>
+                        <td>/users/:Username/favorites/:Title</td>
+                        <td>N/A</td>
                         <td>String - 'Successfully removed movie from
                             favorites.'</td>
                     </tr>

@@ -120,7 +120,7 @@ let movies = [
 ];
 
 app.use(morgan('common'));
-app.use(express.static('public'));
+app.use(express.static('0public'));
 
 app.get('/', (req, res) => {
 	res.send('Welcome to my Movie App!');
@@ -131,6 +131,7 @@ app.get('/movies', (req, res) => {
 	res.json(movies);
 });
 
+// Return single movies data
 app.get('/movies/:Title', (req, res) => {
 	res.json(
 		movies.find((movie) => {
@@ -138,7 +139,7 @@ app.get('/movies/:Title', (req, res) => {
 		})
 	);
 });
-
+// Genre description by genre name
 app.get('/movies/genre/:Name', (req, res) => {
 	res.json(
 		movies.find((movie) => {
@@ -146,7 +147,7 @@ app.get('/movies/genre/:Name', (req, res) => {
 		}).Genre
 	);
 });
-
+// Get director by name
 app.get('/movies/director/:Name', (req, res) => {
 	res.json(
 		movies.find((movie) => {
@@ -156,10 +157,12 @@ app.get('/movies/director/:Name', (req, res) => {
 });
 
 // Users endpoints
+// All users
 app.get('/users', function (req, res) {
 	res.json(users);
 });
 
+// Get user by username
 app.get('/users/:Username', (req, res) => {
 	res.json(
 		users.find((user) => {
@@ -167,11 +170,11 @@ app.get('/users/:Username', (req, res) => {
 		})
 	);
 });
-
+// Add user data
 app.post('/users', (req, res) => {
-	res.status(500).send('User added!');
+	res.status(201).send('User added!');
 });
-
+// Update user data
 app.put('/users/:Username', (req, res) => {
 	res.json(
 		users.find((user) => {
@@ -180,18 +183,18 @@ app.put('/users/:Username', (req, res) => {
 	);
 });
 
-//allows user to add movie to favorites
-app.post('/users/:Username/favorites', (req, res) => {
-	res.status(500).send('Succesfully added movie to favorites!');
+//add movie to favorites
+app.post('/users/:Username/favorites/:Title', (req, res) => {
+	res.status(201).send('Succesfully added movie to favorites!');
 });
 
-//allows user to remove movie from favorites
-app.delete('/users/:Username/favorites', (req, res) => {
-	res.status(500).send('Successfully removed movie from favorites.');
+//remove movie from favorites
+app.delete('/users/:Username/favorites/:Title', (req, res) => {
+	res.status(201).send('Successfully removed movie from favorites.');
 });
-
+// remove user
 app.delete('/users/:Email', (req, res) => {
-	res.status(500).send('User Deleted.');
+	res.status(201).send('User Deleted.');
 });
 
 app.use((err, req, res, next) => {
