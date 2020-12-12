@@ -142,7 +142,7 @@ app.get('/movies/genre/:Name', (req, res) => {
 	res.json(
 		movies.find((movie) => {
 			return movie.Genre.Name === req.params.Name;
-		})
+		}).Genre
 	);
 });
 
@@ -150,7 +150,7 @@ app.get('/movies/director/:Name', (req, res) => {
 	res.json(
 		movies.find((movie) => {
 			return movie.Director.Name === req.params.Name;
-		})
+		}).Director
 	);
 });
 
