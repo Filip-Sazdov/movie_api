@@ -29,7 +29,12 @@ let users = [
 		FavoriteMovies: [],
 	},
 ];
-
+/* Create a script to populate each of these tables using INSERT statements:
+At least 10 movies, of which, at least 2 should have the same director, and at least 2 should have the same genre
+At least 3 directors
+At least 3 genres
+At least 3 users
+At least 3 user-movie pairs*/
 let movies = [
 	{
 		id: 1,
@@ -103,7 +108,7 @@ let movies = [
 		Genre: {
 			Name: 'Adventure',
 			Description:
-				'Adventure. Adventure film is a genre that revolves around the conquests and explorations of a protagonist. The purpose of the conquest can be to retrieve a person or treasure, but often the main focus is simply the pursuit of the unknown. These films generally take place in exotic locations and play on historical myths.',
+				'Adventure film is a genre that revolves around the conquests and explorations of a protagonist. The purpose of the conquest can be to retrieve a person or treasure, but often the main focus is simply the pursuit of the unknown. These films generally take place in exotic locations and play on historical myths.',
 		},
 		Director: {
 			Name: 'David Yates',
@@ -115,6 +120,137 @@ let movies = [
 
 		ImagePath:
 			'https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX667_CR0,0,667,999_AL_.jpg',
+		Featured: true,
+	},
+	{
+		id: 5,
+		Title: 'Tenet',
+		Description:
+			'Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.',
+		Genre: {
+			Name: 'Action',
+			Description:
+				'Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases.',
+		},
+		Director: {
+			Name: 'Christopher Nolan',
+			Bio:
+				'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
+			Birth: '1970',
+			Death: '',
+		},
+
+		ImagePath:
+			'https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_UX182_CR0,0,182,268_AL_.jpg',
+		Featured: true,
+	},
+	{
+		id: 6,
+		Title: 'Dunkirk',
+		Description:
+			'Allied soldiers from Belgium, the British Empire, and France are surrounded by the German Army and evacuated during a fierce battle in World War II.',
+		Genre: {
+			Name: 'Action',
+			Description:
+				'Action film is a film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats, rescues and frantic chases.',
+		},
+		Director: {
+			Name: 'Christopher Nolan',
+			Bio:
+				'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
+			Birth: '1970',
+			Death: '',
+		},
+
+		ImagePath:
+			'https://m.media-amazon.com/images/M/MV5BN2YyZjQ0NTEtNzU5MS00NGZkLTg0MTEtYzJmMWY3MWRhZjM2XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_UX182_CR0,0,182,268_AL_.jpg',
+		Featured: true,
+	},
+	{
+		id: 7,
+		Title: 'Interstellar',
+		Description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+		Genre: {
+			Name: 'Adventure',
+			Description:
+				'Adventure film is a genre that revolves around the conquests and explorations of a protagonist. The purpose of the conquest can be to retrieve a person or treasure, but often the main focus is simply the pursuit of the unknown. These films generally take place in exotic locations and play on historical myths.',
+		},
+		Director: {
+			Name: 'Christopher Nolan',
+			Bio:
+				'Best known for his cerebral, often nonlinear, storytelling, acclaimed writer-director Christopher Nolan was born on July 30, 1970, in London, England. Over the course of 15 years of filmmaking, Nolan has gone from low-budget independent films to working on some of the biggest blockbusters ever made.',
+			Birth: '1970',
+			Death: '',
+		},
+
+		ImagePath:
+			'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg',
+		Featured: true,
+	},
+	{
+		id: 8,
+		Title: 'Fight Club',
+		Description:
+			'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.',
+		Genre: {
+			Name: 'Drama',
+			Description:
+				'In film and television, drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. ... These terms tend to indicate a particular setting or subject-matter, or else they qualify the otherwise serious tone of a drama with elements that encourage a broader range of moods.',
+		},
+		Director: {
+			Name: 'David Fincher',
+			Bio:
+				'David Fincher was born in 1962 in Denver, Colorado, and was raised in Marin County, California. When he was 18 years old he went to work for John Korty at Korty Films in Mill Valley. He subsequently worked at ILM (Industrial Light and Magic) from 1981-1983.',
+			Birth: '1962',
+			Death: '',
+		},
+
+		ImagePath:
+			'https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg',
+		Featured: true,
+	},
+	{
+		id: 9,
+		Title: 'The Godfather',
+		Description:
+			'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
+		Genre: {
+			Name: 'Drama',
+			Description:
+				'In film and television, drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. ... These terms tend to indicate a particular setting or subject-matter, or else they qualify the otherwise serious tone of a drama with elements that encourage a broader range of moods.',
+		},
+		Director: {
+			Name: 'Francis Ford Coppola',
+			Bio:
+				'Francis Ford Coppola was born in 1939 in Detroit, Michigan, but grew up in a New York suburb in a creative, supportive Italian-American family. His father, Carmine Coppola, was a composer and musician. His mother, Italia Coppola (née Pennino), had been an actress. Francis Ford Coppola graduated with a degree in drama from Hofstra University, and did graduate work at UCLA in filmmaking.',
+			Birth: '1939',
+			Death: '',
+		},
+
+		ImagePath:
+			'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg',
+		Featured: true,
+	},
+	{
+		id: 10,
+		Title: 'Pulp Fiction',
+		Description:
+			'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
+		Genre: {
+			Name: 'Drama',
+			Description:
+				'In film and television, drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. ... These terms tend to indicate a particular setting or subject-matter, or else they qualify the otherwise serious tone of a drama with elements that encourage a broader range of moods.',
+		},
+		Director: {
+			Name: 'Quentin Tarantino',
+			Bio:
+				"Quentin Jerome Tarantino was born in Knoxville, Tennessee. In January of 1992, first-time writer-director Tarantino's Reservoir Dogs (1992) appeared at the Sundance Film Festival. The film garnered critical acclaim and the director became a legend immediately. Two years later, he followed up Dogs success with Pulp Fiction (1994) which premiered at the Cannes film festival, winning the coveted Palme D'Or Award.",
+			Birth: '1963',
+			Death: '',
+		},
+
+		ImagePath:
+			'https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY132_CR1,0,89,132_AL_.jpg',
 		Featured: true,
 	},
 ];
