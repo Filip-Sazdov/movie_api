@@ -120,7 +120,7 @@ let movies = [
 ];
 
 app.use(morgan('common'));
-app.use(express.static('0public'));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
 	res.send('Welcome to my Movie App!');
