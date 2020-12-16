@@ -249,8 +249,9 @@ let movies = [
 		Featured: true,
 	},
 ];
-
+// Morgan is a package for keeping logs
 app.use(morgan('common'));
+// Express.static returns all the static files located within the folder name provided as an argument
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
