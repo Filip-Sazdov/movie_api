@@ -1,5 +1,12 @@
 const express = require('express'),
-	morgan = require('morgan');
+	morgan = require('morgan'),
+	mongoose = require('mongoose'),
+	Models = require('./models.js');
+
+const Movies = Models.Movie,
+	Users = Models.User;
+
+mongoose.connect('mongodb://localhost:27017/movie_APIDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
 
