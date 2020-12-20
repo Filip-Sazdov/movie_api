@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
@@ -7,6 +8,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 const app = express();
+app.use(bodyParser.json());
 // Morgan is a package for keeping logs
 app.use(morgan('common'));
 // Express.static returns all the static files located within the folder name provided as an argument
@@ -19,17 +21,23 @@ app.get('/', (req, res) => {
 });
 
 // Movies endpoints
+// Get all movies
 app.get('/movies', (req, res) => {
-	res.json(movies);
+	Movies.find().then((movies) => {
+		res.status(201).json(movies);
+	});
 });
 
-// Return single movies data
+// Return single movie data
 app.get('/movies/:Title', (req, res) => {
-	res.json(
-		movies.find((movie) => {
-			return movie.Title === req.params.Title;
+	Movies.findOne({ Title: req.params.Title })
+		.then((movie) => {
+			res.json(movie);
 		})
-	);
+		.catch((err) => {
+			console.error(err);
+			res.status(500).send('Error: ' + err);
+		});
 });
 // Genre description by genre name
 app.get('/movies/genre/:Name', (req, res) => {
