@@ -8,6 +8,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 const app = express();
+// bodyParser.json() is replaced by express.json() but the exercise specifies the former
 app.use(bodyParser.json());
 // Morgan is a package for keeping logs
 app.use(morgan('common'));
