@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // Get all movies
 app.get('/movies', (req, res) => {
 	Movies.find().then((movies) => {
-		res.status(201).json(movies);
+		res.status(200).json(movies);
 	});
 });
 
@@ -33,7 +33,7 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:Title', (req, res) => {
 	Movies.findOne({ Title: req.params.Title })
 		.then((movie) => {
-			res.json(movie);
+			res.status(200).json(movie);
 		})
 		.catch((err) => {
 			console.error(err);
@@ -42,19 +42,15 @@ app.get('/movies/:Title', (req, res) => {
 });
 // Genre description by genre name
 app.get('/movies/genre/:Name', (req, res) => {
-	res.json(
-		movies.find((movie) => {
-			return movie.Genre.Name === req.params.Name;
-		}).Genre
-	);
+	Movies.findOne({ 'Genre.Name': req.params.Name }).then((movie) => {
+		res.status(200).json(movie.Genre);
+	});
 });
 // Get director by name
 app.get('/movies/director/:Name', (req, res) => {
-	res.json(
-		movies.find((movie) => {
-			return movie.Director.Name === req.params.Name;
-		}).Director
-	);
+	Movies.findOne({ 'Director.Name': req.params.Name }).then((movie) => {
+		res.status(200).json(movie.Director);
+	});
 });
 
 // Users endpoints
@@ -173,8 +169,22 @@ app.post('/users/:Username/Movies/:MovieID', (req, res) => {
 });
 
 //remove movie from favorites
-app.delete('/users/:Username/favorites/:Title', (req, res) => {
-	res.status(201).send('Successfully removed movie from favorites.');
+app.delete('/users/:Username/Movies/:MovieID', (req, res) => {
+	Users.findOneAndUpdate(
+		{ Username: req.params.Username },
+		{
+			$pull: { FavoriteMovies: req.params.MovieID },
+		},
+		{ new: true }, // This line makes sure that the updated document is returned
+		(err, updatedUser) => {
+			if (err) {
+				console.error(err);
+				res.status(500).send('Error: ' + err);
+			} else {
+				res.json(updatedUser);
+			}
+		}
+	);
 });
 
 // Delete a user by username
