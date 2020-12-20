@@ -66,7 +66,7 @@
                                     ImagePath:
                                     "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,677,1000_AL_.jpg",
                                     Featured: true,
-                                }
+                                }, ...
                                 ]
                             </pre>
                         </td>
@@ -82,29 +82,26 @@
                         <td>
                             <pre>
                                 {
-                                    id: 3,
-                                    Title: "The Notebook",
-                                    Description:
-                                      "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
-                                    Genre: {
-                                      Name: "Romance",
-                                      Description:
-                                        "Romance films or romance movies are romantic love stories recorded in visual media for broadcast in theaters and on TV that focus on passion, emotion, and the affectionate romantic involvement of the main characters and the journey that their love takes them through dating, courtship or marriage.",
+                                    "Genre": {
+                                        "Name": "Romance",
+                                        "Description": "Romance films or romance movies are romantic love stories recorded in visual media for broadcast in theaters and on TV that focus on passion,
+                                        emotion, and the affectionate romantic involvement of the main characters and the journey that their love takes them through dating, courtship or marriage."
                                     },
-                                    Director: {
-                                      Name: "Nick Cassavetes",
-                                      Bio:
-                                        "Nick Cassavetes was born in New York City, the son of actress Gena Rowlands and Greek-American actor and film director John Cassavetes. As a child, he appeared in two of his father's films: Husbands (1970) and A Woman Under the Influence (1974).
-                                        After spending so much of his youth surrounded by the film industry, Cassavetes initially decided he did not want to go into the field. He instead attended Syracuse University on a basketball scholarship.
-                                        His athletic career was effectively ended by an injury, and he decided to rethink his aspirations, ultimately deciding to attend his parents' alma mater, the American Academy of Dramatic Arts in New York.",
-                                      Birth: "1959",
-                                      Death: "",
+                                    "Director": {
+                                        "Name": "Nick Cassavetes",
+                                        "Bio": "Nick Cassavetes was born in New York City, the son of actress Gena Rowlands and Greek-American actor and film director John Cassavetes.
+                                        As a child, he appeared in two of his father's films: Husbands (1970) and A Woman Under the Influence (1974). 
+                                        After spending so much of his youth surrounded by the film industry, Cassavetes initially decided he did not want to go into the field. He instead attended Syracuse University on a basketball scholarship. ",
+                                        "Birth": "1959",
+                                        "Death": ""
                                     },
-                                
-                                    ImagePath:
-                                      "https://m.media-amazon.com/images/M/MV5BMTk3OTM5Njg5M15BMl5BanBnXkFtZTYwMzA0ODI3._V1_.jpg",
-                                    Featured: true,
-                                  }
+                                    "Actors": [],
+                                    "_id": "5fdaf582a04a24af1fbfe6fd",
+                                    "Title": "The Notebook",
+                                    "Description": "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
+                                    "ImagePath": "https://m.media-amazon.com/images/M/MV5BMTk3OTM5Njg5M15BMl5BanBnXkFtZTYwMzA0ODI3._V1_.jpg",
+                                    "Featured": true
+                                }
                             </pre>
                         </td>
                     </tr>
@@ -160,26 +157,29 @@
                                         Email: "h.monet1104@gmail.com",
                                         Birthday: "11/04/1990",
                                         FavoriteMovies: [],
-                                    }
+                                    }, ...
                                 ]
                             </pre>
                         </td>
                     </tr>
                     <tr>
                         <td>Return single user data by Username</td>
-                        <td>http://localhost:8080/users/Sean%20Keating</td>
+                        <td>http://localhost:8080/users/Hannah%20Keating</td>
                         <td>GET</td>
                         <td>/users/:Username</td>
                         <td>N/A</td>
                         <td>
                             <pre>
                                 {
-                                    id: 3,
-                                    Username: "Sean Keating",
-                                    Password: "5555",
-                                    Email: "seank@gmail.com",
-                                    Birthday: "11/04/1990",
-                                    FavoriteMovies: [],
+                                    "FavoriteMovies": [
+                                        "5fdaf623a04a24af1fbfe701"
+                                    ],
+                                    "_id": "5fdafbb0a04a24af1fbfe707",
+                                    "id": 3,
+                                    "Username": "Hannah Keating",
+                                    "Password": "1234",
+                                    "Email": "h.monet1104@gmail.com",
+                                    "Birthday": "1990-11-04T00:00:00.000Z"
                                 }
                             </pre>
                         </td>
@@ -192,77 +192,109 @@
                         <td>
                             <Pre>
                                 {
-                                    id: 1,
-                                    Username: "Hannah Keating",
-                                    Password: "1234",
-                                    Email: "h.monet1104@gmail.com",
-                                    Birthday: "11/04/1990",
-                                    FavoriteMovies: [],
+                                    "Username": "Gandalf Keating",
+                                    "Password": "testpass1111",
+                                    "Email": "t1104dsfadf@gmail.com",
+                                    "Birthday": "1995-11-04"
                                 }
                             </Pre>
                         </td>
-                        <td>String - 'User added!'</td>
+                        <td>
+                            <pre>
+                                {
+                                    "FavoriteMovies": [],
+                                    "_id": "5fdef805d944ed04dc388e7f",
+                                    "Username": "Gandalf Keating",
+                                    "Password": "testpass1111",
+                                    "Email": "t1104dsfadf@gmail.com",
+                                    "Birthday": "1995-11-04T00:00:00.000Z",
+                                    "__v": 0
+                                }
+                            </pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Allow users to update their user info (username)</td>
-                        <td>http://localhost:8080/users/Sean%20Keating</td>
+                        <td>http://localhost:8080/users/Gandalf%20Keating</td>
                         <td>PUT</td>
                         <td>/users/:Username - Parameter is case-sensitive</td>
                         <td>
                             <pre>
                                 {
-                                    id: 3,
-                                    Username: "Sean Keating",
-                                    Password: "5555",
-                                    Email: "seank@gmail.com",
-                                    Birthday: "11/04/1990",
-                                    FavoriteMovies: [],
+                                    "Username": "Gandalf Keating",
+                                    "Password": "1234567890",
+                                    "Email": "t1104dsfadf@gmail.com",
+                                    "Birthday": "1995-11-04"
                                 }
                             </pre>
                         </td>
                         <td>
                             <pre>
                                 {
-                                    id: 3,
-                                    Username: "Sean Keating",
-                                    Password: "5555",
-                                    Email: "seank@gmail.com",
-                                    Birthday: "11/04/1990",
-                                    FavoriteMovies: [],
+                                    "FavoriteMovies": [],
+                                    "_id": "5fdef805d944ed04dc388e7f",
+                                    "Username": "Gandalf Keating",
+                                    "Password": "1234567890",
+                                    "Email": "t1104dsfadf@gmail.com",
+                                    "Birthday": "1995-11-04T00:00:00.000Z",
+                                    "__v": 0
                                 }
                             </pre>
                         </td>
                     </tr>
                     <tr>
                         <td>Allow users to add a movie to their list of
-                            favorites (showing only a text that a movie has been
-                            added—more on this later)</td>
-                        <td>http://localhost:8080/users/Sean%20Keating/favorites/The%20Notebook</td>
+                            favorites</td>
+                        <td>http://localhost:8080/users/Gandalf%20Keating/Movies/5fdaf5e3a04a24af1fbfe6ff</td>
                         <td>POST</td>
-                        <td>/users/:Username/favorites/:Title</td>
+                        <td>/users/:Username/Movies/:MovieID</td>
                         <td>N/A</td>
-                        <td>String - 'Succesfully added movie to favorites!'</td>
+                        <td>
+                            <pre>
+                                {
+                                    "FavoriteMovies": [
+                                        "5fdaf5e3a04a24af1fbfe6ff"
+                                    ],
+                                    "_id": "5fdef805d944ed04dc388e7f",
+                                    "Username": "Gandalf Keating",
+                                    "Password": "1234567890",
+                                    "Email": "t1104dsfadf@gmail.com",
+                                    "Birthday": "1995-11-04T00:00:00.000Z",
+                                    "__v": 0
+                                }
+                            </pre>
+                        </td>
                     </tr>
                     <tr>
                         <td>Allow users to remove a movie from their list of
-                            favorites (showing only a text that a movie has been
-                            removed—more on this later)</td>
-                        <td>http://localhost:8080/users/Sean%20Keating/favorites/The%20Notebook</td>
+                            favorites</td>
+                        <td>http://localhost:8080/users/davidcohen2580/Movies/5fdaf6bca04a24af1fbfe704</td>
                         <td>DELETE</td>
-                        <td>/users/:Username/favorites/:Title</td>
+                        <td>/users/:Username/Movies/:MovieID</td>
                         <td>N/A</td>
-                        <td>String - 'Successfully removed movie from
-                            favorites.'</td>
+                        <td>
+                            <pre>
+                                {
+                                    "FavoriteMovies": [
+                                        "5fdaf66ba04a24af1fbfe702"
+                                    ],
+                                    "_id": "5fdaf833a04a24af1fbfe705",
+                                    "id": 1,
+                                    "Username": "davidcohen2580",
+                                    "Password": "test123",
+                                    "Email": "davidcohen2580@gmail.com",
+                                    "Birthday": "1988-09-10T00:00:00.000Z"
+                                }
+                            </pre>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Allow existing users to deregister (showing only a
-                            text that a user email has been removed—more on this
-                            later)</td>
-                        <td>http://localhost:8080/users/h.monet1104@yahoo.com</td>
+                        <td>Allow existing users to deregister</td>
+                        <td>http://localhost:8080/users/Tinkerbell Keating</td>
                         <td>DELETE</td>
-                        <td>/users/:Email</td>
+                        <td>/users/:Username</td>
                         <td>N/A</td>
-                        <td>String - 'User Deleted.'</td>
+                        <td>String - :Username + ' was deleted.'</td>
                     </tr>
                 </tbody>
 
