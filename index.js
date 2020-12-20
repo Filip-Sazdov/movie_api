@@ -49,11 +49,7 @@ app.get('/movies/director/:Name', (req, res) => {
 });
 
 // Users endpoints
-// All users
-// app.get('/users', function (req, res) {
-// 	res.json(users);
-// });
-
+// Get all users
 app.get('/users', (req, res) => {
 	Users.find()
 		.then((users) => {
@@ -66,14 +62,6 @@ app.get('/users', (req, res) => {
 });
 
 // Get user by username
-// app.get('/users/:Username', (req, res) => {
-// 	res.json(
-// 		users.find((user) => {
-// 			return user.Username === req.params.Username;
-// 		})
-// 	);
-// });
-
 app.get('/users/:Username', (req, res) => {
 	Users.findOne({ Username: req.params.Username })
 		.then((user) => {
@@ -84,11 +72,6 @@ app.get('/users/:Username', (req, res) => {
 			res.status(500).send('Error: ' + err);
 		});
 });
-
-// Add user data
-// app.post('/users', (req, res) => {
-// 	res.status(201).send('User added!');
-// });
 
 //Add a user
 /* We’ll expect JSON in this format
@@ -127,15 +110,6 @@ app.post('/users', (req, res) => {
 		});
 });
 
-// Update user data
-// app.put('/users/:Username', (req, res) => {
-// 	res.json(
-// 		users.find((user) => {
-// 			return user.Username === req.params.Username;
-// 		})
-// 	);
-// });
-
 // Update a user's info, by username
 /* We’ll expect JSON in this format
 {
@@ -170,11 +144,6 @@ app.put('/users/:Username', (req, res) => {
 	);
 });
 
-//add movie to favorites
-// app.post('/users/:Username/favorites/:Title', (req, res) => {
-// 	res.status(201).send('Succesfully added movie to favorites!');
-// });
-
 // Add a movie to a user's list of favorites
 app.post('/users/:Username/Movies/:MovieID', (req, res) => {
 	Users.findOneAndUpdate(
@@ -198,9 +167,21 @@ app.post('/users/:Username/Movies/:MovieID', (req, res) => {
 app.delete('/users/:Username/favorites/:Title', (req, res) => {
 	res.status(201).send('Successfully removed movie from favorites.');
 });
-// remove user
-app.delete('/users/:Email', (req, res) => {
-	res.status(201).send('User Deleted.');
+
+// Delete a user by username
+app.delete('/users/:Username', (req, res) => {
+	Users.findOneAndRemove({ Username: req.params.Username })
+		.then((user) => {
+			if (!user) {
+				res.status(400).send(req.params.Username + ' was not found');
+			} else {
+				res.status(200).send(req.params.Username + ' was deleted.');
+			}
+		})
+		.catch((err) => {
+			console.error(err);
+			res.status(500).send('Error: ' + err);
+		});
 });
 
 app.use((err, req, res, next) => {
