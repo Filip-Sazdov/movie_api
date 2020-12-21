@@ -7,9 +7,15 @@ const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 
+const passport = require('passport');
+require('./passport');
+
 const app = express();
 // bodyParser.json() is replaced by express.json() but the exercise specifies the former
 app.use(bodyParser.json());
+
+let auth = require('./auth')(app);
+
 // Morgan is a package for keeping logs
 app.use(morgan('common'));
 // Express.static returns all the static files located within the folder name provided as an argument
@@ -23,7 +29,7 @@ app.get('/', (req, res) => {
 
 // Movies endpoints
 // Get all movies
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
 	Movies.find().then((movies) => {
 		res.status(200).json(movies);
 	});
