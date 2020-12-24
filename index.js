@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+const cors = require('cors');
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -11,6 +12,8 @@ const passport = require('passport');
 require('./passport');
 
 const app = express();
+
+app.use(cors());
 // bodyParser.json() is replaced by express.json() but the exercise specifies the former
 app.use(bodyParser.json());
 
