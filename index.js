@@ -196,23 +196,36 @@ app.put(
 );
 
 // Add a movie to a user's list of favorites
-app.post('/users/:Username/Movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
-	Users.findOneAndUpdate(
-		{ Username: req.params.Username },
-		{
-			$push: { FavoriteMovies: req.params.MovieID },
-		},
-		{ new: true }, // This line makes sure that the updated document is returned
-		(err, updatedUser) => {
-			if (err) {
-				console.error(err);
-				res.status(500).send('Error: ' + err);
-			} else {
-				res.json(updatedUser);
+app.post(
+	'/users/:Username/Movies/:MovieID',
+	passport.authenticate(
+		'jwt',
+		[
+			check('Username', 'Username is required').isLength({ min: 5 }),
+			check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+			check('MovieID', 'MovieID is required').not().isEmpty(),
+			check('MovieID', 'MovieID contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+		],
+		{ session: false }
+	),
+	(req, res) => {
+		Users.findOneAndUpdate(
+			{ Username: req.params.Username },
+			{
+				$push: { FavoriteMovies: req.params.MovieID },
+			},
+			{ new: true }, // This line makes sure that the updated document is returned
+			(err, updatedUser) => {
+				if (err) {
+					console.error(err);
+					res.status(500).send('Error: ' + err);
+				} else {
+					res.json(updatedUser);
+				}
 			}
-		}
-	);
-});
+		);
+	}
+);
 
 //remove movie from favorites
 app.delete('/users/:Username/Movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
