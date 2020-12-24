@@ -235,7 +235,7 @@ app.use((err, req, res, next) => {
 	console.error(err.stack);
 	res.status(500).send('Something broke!');
 });
-
+// Use pre-configured port number in the environment variable or 8080
 const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0', () => {
 	console.log('Listening on Port ' + port);
