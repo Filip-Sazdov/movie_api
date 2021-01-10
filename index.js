@@ -34,7 +34,8 @@ app.get('/', (req, res) => {
 
 // Movies endpoints
 // Get all movies
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+// removed passport.authenticate('jwt', { session: false }) in order for unauth users to be able to see the list of all movies. But only registered users can access specifics of individual movies or add to list of favorites.
+app.get('/movies', (req, res) => {
 	Movies.find().then((movies) => {
 		res.status(200).json(movies);
 	});
