@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Movie API</title>
-    </head>
-    <body>
-        <main>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie API</title>
+  </head>
+  <body>
+    <main>
 
-            <h1>Create a REST API with Node.js & Express</h1>
-            <p>The objective of this project is to build the server­side
-                component
-                of a “movies” web application. The web application will
-                provide users with access to information about different movies,
-                directors, and genres. Users
-                will be able to sign up, update their personal information, and
-                create a list of their favorite
-                movies.
-            </p>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Request Description</th>
-                        <th>Endpoint URL</th>
-                        <th>HTTP Method</th>
-                        <th>The query parameters (parameters in the URL)</th>
-                        <th>The format of data expected in the body of the
-                            request (and an example)</th>
-                        <th>The format of the response data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Return a list of ALL movies to the user</td>
-                        <td>http://localhost:8080/movies</td>
-                        <td>GET</td>
-                        <td>/movies</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+      <h1>Create a REST API with Node.js & Express</h1>
+      <p>The objective of this project is to build the server­side
+        component
+        of a “movies” web application. The web application will
+        provide users with access to information about different movies,
+        directors, and genres. Users
+        will be able to sign up, update their personal information, and
+        create a list of their favorite
+        movies.
+      </p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Request Description</th>
+            <th>Endpoint URL</th>
+            <th>HTTP Method</th>
+            <th>The query parameters (parameters in the URL)</th>
+            <th>The format of data expected in the body of the
+              request (and an example)</th>
+            <th>The format of the response data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Return a list of ALL movies to the user</td>
+            <td>http://localhost:8080/movies</td>
+            <td>GET</td>
+            <td>/movies</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 [
                                 {
                                     id: 1,
@@ -69,18 +69,18 @@
                                 }, ...
                                 ]
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Return data (description, genre, director, image
-                            URL, whether it’s featured or not) about a single
-                            movie by title to the user</td>
-                        <td>http://localhost:8080/movies/The%20Notebook</td>
-                        <td>GET</td>
-                        <td>/movies/:Title - Parameter is case-sensitive</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return data (description, genre, director, image
+              URL, whether it’s featured or not) about a single
+              movie by title to the user</td>
+            <td>http://localhost:8080/movies/The%20Notebook</td>
+            <td>GET</td>
+            <td>/movies/:Title - Parameter is case-sensitive</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 {
                                     "Genre": {
                                         "Name": "Romance",
@@ -103,34 +103,34 @@
                                     "Featured": true
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Return data about a genre (description) by
-                            name/title (e.g., “Thriller”)</td>
-                        <td>http://localhost:8080/movies/genre/Thriller</td>
-                        <td>GET</td>
-                        <td>/movies/genre/:Name - Parameter is case-sensitive</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return data about a genre (description) by
+              name/title (e.g., “Thriller”)</td>
+            <td>http://localhost:8080/movies/genre/Thriller</td>
+            <td>GET</td>
+            <td>/movies/genre/:Name - Parameter is case-sensitive</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 {
                                     Name: "Thriller",
                                     Description:
                                     "Thriller film, also known as suspense film or suspense thriller, is a broad film genre that involves excitement and suspense in the audience.",
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Return data about a director (bio, birth year, death
-                            year) by name</td>
-                        <td>http://localhost:8080/movies/director/David%20Yates</td>
-                        <td>GET</td>
-                        <td>/movies/director/:Name - Parameter is case-sensitive</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return data about a director (bio, birth year, death
+              year) by name</td>
+            <td>http://localhost:8080/movies/director/David%20Yates</td>
+            <td>GET</td>
+            <td>/movies/director/:Name - Parameter is case-sensitive</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 {
                                     Name: "David Yates",
                                     Bio:
@@ -139,16 +139,16 @@
                                     Death: "",
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Return a list of ALL user data</td>
-                        <td>http://localhost:8080/users</td>
-                        <td>GET</td>
-                        <td>/users</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return a list of ALL user data</td>
+            <td>http://localhost:8080/users</td>
+            <td>GET</td>
+            <td>/users</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 [
                                     {
                                         id: 1,
@@ -160,16 +160,16 @@
                                     }, ...
                                 ]
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Return single user data by Username</td>
-                        <td>http://localhost:8080/users/Hannah%20Keating</td>
-                        <td>GET</td>
-                        <td>/users/:Username</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Return single user data by Username</td>
+            <td>http://localhost:8080/users/Hannah%20Keating</td>
+            <td>GET</td>
+            <td>/users/:Username</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 {
                                     "FavoriteMovies": [
                                         "5fdaf623a04a24af1fbfe701"
@@ -182,15 +182,15 @@
                                     "Birthday": "1990-11-04T00:00:00.000Z"
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allow new users to register</td>
-                        <td>http://localhost:8080/users</td>
-                        <td>POST</td>
-                        <td>/users</td>
-                        <td>
-                            <Pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow new users to register</td>
+            <td>http://localhost:8080/users</td>
+            <td>POST</td>
+            <td>/users</td>
+            <td>
+              <Pre>
                                 {
                                     "Username": "Gandalf Keating",
                                     "Password": "testpass1111",
@@ -198,9 +198,9 @@
                                     "Birthday": "1995-11-04"
                                 }
                             </Pre>
-                        </td>
-                        <td>
-                            <pre>
+            </td>
+            <td>
+              <pre>
                                 {
                                     "FavoriteMovies": [],
                                     "_id": "5fdef805d944ed04dc388e7f",
@@ -211,15 +211,15 @@
                                     "__v": 0
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allow users to update their user info (username)</td>
-                        <td>http://localhost:8080/users/Gandalf%20Keating</td>
-                        <td>PUT</td>
-                        <td>/users/:Username - Parameter is case-sensitive</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow users to update their user info (username)</td>
+            <td>http://localhost:8080/users/Gandalf%20Keating</td>
+            <td>PUT</td>
+            <td>/users/:Username - Parameter is case-sensitive</td>
+            <td>
+              <pre>
                                 {
                                     "Username": "Gandalf Keating",
                                     "Password": "1234567890",
@@ -227,9 +227,9 @@
                                     "Birthday": "1995-11-04"
                                 }
                             </pre>
-                        </td>
-                        <td>
-                            <pre>
+            </td>
+            <td>
+              <pre>
                                 {
                                     "FavoriteMovies": [],
                                     "_id": "5fdef805d944ed04dc388e7f",
@@ -240,17 +240,17 @@
                                     "__v": 0
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allow users to add a movie to their list of
-                            favorites</td>
-                        <td>http://localhost:8080/users/Gandalf%20Keating/Movies/5fdaf5e3a04a24af1fbfe6ff</td>
-                        <td>POST</td>
-                        <td>/users/:Username/Movies/:MovieID</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow users to add a movie to their list of
+              favorites</td>
+            <td>http://localhost:8080/users/Gandalf%20Keating/Movies/5fdaf5e3a04a24af1fbfe6ff</td>
+            <td>POST</td>
+            <td>/users/:Username/Movies/:MovieID</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 {
                                     "FavoriteMovies": [
                                         "5fdaf5e3a04a24af1fbfe6ff"
@@ -263,17 +263,17 @@
                                     "__v": 0
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allow users to remove a movie from their list of
-                            favorites</td>
-                        <td>http://localhost:8080/users/davidcohen2580/Movies/5fdaf6bca04a24af1fbfe704</td>
-                        <td>DELETE</td>
-                        <td>/users/:Username/Movies/:MovieID</td>
-                        <td>N/A</td>
-                        <td>
-                            <pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow users to remove a movie from their list of
+              favorites</td>
+            <td>http://localhost:8080/users/davidcohen2580/Movies/5fdaf6bca04a24af1fbfe704</td>
+            <td>DELETE</td>
+            <td>/users/:Username/Movies/:MovieID</td>
+            <td>N/A</td>
+            <td>
+              <pre>
                                 {
                                     "FavoriteMovies": [
                                         "5fdaf66ba04a24af1fbfe702"
@@ -286,19 +286,19 @@
                                     "Birthday": "1988-09-10T00:00:00.000Z"
                                 }
                             </pre>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Allow existing users to deregister</td>
-                        <td>http://localhost:8080/users/Tinkerbell Keating</td>
-                        <td>DELETE</td>
-                        <td>/users/:Username</td>
-                        <td>N/A</td>
-                        <td>String - :Username + ' was deleted.'</td>
-                    </tr>
-                </tbody>
+            </td>
+          </tr>
+          <tr>
+            <td>Allow existing users to deregister</td>
+            <td>http://localhost:8080/users/Tinkerbell Keating</td>
+            <td>DELETE</td>
+            <td>/users/:Username</td>
+            <td>N/A</td>
+            <td>String - :Username + ' was deleted.'</td>
+          </tr>
+        </tbody>
 
-            </table>
-        </main>
-    </body>
+      </table>
+    </main>
+  </body>
 </html>
