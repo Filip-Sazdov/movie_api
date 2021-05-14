@@ -35,7 +35,7 @@ mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnified
 
 /**
  * This method sends the welcome message from the movie api back to the user.
- * @param endpoint and callback
+ * 
  */
 app.get("/", (req, res) => {
 	res.send(
@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
  * This method makes a call to the movies endpoint,
  * authenticates the user using passport and jwt 
  * and returns an array of movies objects.
- * @returns {object}
+ * 
  */
 app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) => {
 	Movies.find().then((movies) => {
