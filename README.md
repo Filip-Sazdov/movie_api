@@ -1,9 +1,9 @@
 # movie_api
 REST-full API built with Node and Express, provides info on movies.
 
-This project is the second achievement that is part of the CareeFoundry curriculum.
+This project is the second achievement that is part of the CareerFoundry curriculum.
 
-It is a REST-full API created with Node and Express and it uses Passport and JavaScript Web Tokens (JWT) to authenticate and authorise a user. The serverr lives on Heroku, whereas the data is found on MongoDB.
+It is a REST-full API created with Node and Express and it uses Passport and JavaScript Web Tokens (JWT) to authenticate and authorise a user. The server lives on Heroku, whereas the data is found on MongoDB.
 
 Provides all necessary CRUD operations on the Movies and Users document collections. 
 
